@@ -9,11 +9,20 @@ import UIKit
 
 class EntryListTableViewController: UITableViewController {
 
+    // MARK:- Properties
+    var entry: Entry?
+    
     // MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        EntryController.sharedInstance.createEntryWith(title: "Test Title", body: "Test Body", timestamp: Date(), uuid: UUID().uuidString)
+        //EntryController.sharedInstance.createEntryWith(title: "Test Title", body: "Test Body", timestamp: Date(), uuid: UUID().uuidString)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -48,6 +57,18 @@ class EntryListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //IIDO
+        let entry = self.entry
+        guard let destinationVC = segue.destination as? EntryDetailViewController else { return }
+        destinationVC.entry = entry
 
+        if segue.identifier == "toJournalDetailVC" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            let entry = EntryController.sharedInstance.entries[indexPath.row]
+        
+            destinationVC.entry = entry
+        }
     }
+    
 }
