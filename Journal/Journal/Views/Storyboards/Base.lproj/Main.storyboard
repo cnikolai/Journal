@@ -63,13 +63,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title here…" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BsH-5Z-07F">
-                                <rect key="frame" x="159" y="96" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title here…" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BsH-5Z-07F">
+                                <rect key="frame" x="16" y="104" width="382" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write entry here…" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PxO-hx-71a">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write entry here…" translatesAutoresizingMaskIntoConstraints="NO" id="PxO-hx-71a">
                                 <rect key="frame" x="50" y="164" width="322" height="588"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,9 +77,9 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZC-jm-JG9">
-                                <rect key="frame" x="184" y="814" width="46" height="30"/>
+                                <rect key="frame" x="167" y="814" width="81" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Clear Fields"/>
                                 <connections>
                                     <action selector="clearFieldsButton:" destination="4P0-Je-ewh" eventType="touchUpInside" id="S8A-m2-dr2"/>
                                 </connections>
@@ -88,6 +87,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vj8-Dv-e5O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BsH-5Z-07F" firstAttribute="top" secondItem="Vj8-Dv-e5O" secondAttribute="top" constant="16" id="MdY-fn-eaa"/>
+                            <constraint firstItem="BsH-5Z-07F" firstAttribute="leading" secondItem="Vj8-Dv-e5O" secondAttribute="leading" constant="16" id="Sec-M0-njC"/>
+                            <constraint firstItem="Vj8-Dv-e5O" firstAttribute="trailing" secondItem="BsH-5Z-07F" secondAttribute="trailing" constant="16" id="YZD-DR-rpq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0ml-dK-zIR">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="P5A-uy-VbR">

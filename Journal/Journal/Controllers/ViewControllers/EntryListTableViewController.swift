@@ -16,6 +16,7 @@ class EntryListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        EntryController.sharedInstance.loadFromPersistenceStore()
         //EntryController.sharedInstance.createEntryWith(title: "Test Title", body: "Test Body", timestamp: Date(), uuid: UUID().uuidString)
     }
     
