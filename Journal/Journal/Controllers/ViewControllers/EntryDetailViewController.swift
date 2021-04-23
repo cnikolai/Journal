@@ -13,6 +13,7 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet weak var bodyTextView: UITextView!
     
     // MARK:- Properties
+    var journal: Journal?
     var entry: Entry?
     
     // MARK:- Lifecycle
@@ -24,13 +25,16 @@ class EntryDetailViewController: UIViewController {
     
     // MARK:- Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
-        if let entry = entry {
-            print("to be implemented tomorrow")
-        } else {
-            guard let title = titleTextField.text, !title.isEmpty,
-                  let body = bodyTextView.text, !body.isEmpty else { return }
+        guard let journal = journal else { return }
+            guard let entryTitle = titleTextField.text, !entryTitle.isEmpty,
+                let body = bodyTextView.text, !body.isEmpty else { return }
             
-            EntryController.sharedInstance.createEntryWith(title: title, body: body, timestamp: Date(), uuid: UUID().uuidString)
+        if let entry = entry {
+            entry.title = entryTitle
+            entry.body = body
+            EntryController.updateEntry(journal: journal, entry: entry)
+        } else {
+            EntryController.createEntryWith(journal: journal, title: entryTitle, body: body, timestamp: Date(), uuid: UUID().uuidString)
         }
         navigationController?.popViewController(animated: true)
     }

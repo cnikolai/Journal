@@ -8,9 +8,9 @@
 import Foundation
 
 class Entry: Codable {
-    let title: String
-    let body: String
-    let timestamp: Date
+    var title: String
+    var body: String
+    var timestamp: Date
     let uuid: String
     
     init(title: String, body: String, timestamp: Date = Date(), uuid: String = UUID().uuidString) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fMi-QU-MUS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Vh-Tt-Fc1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -53,7 +53,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Dd-GS-VXt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="379.71014492753625" y="95.758928571428569"/>
+            <point key="canvasLocation" x="1289.8550724637682" y="95.758928571428569"/>
         </scene>
         <!--Entry Detail View Controller-->
         <scene sceneID="d6n-ag-EGo">
@@ -107,23 +107,122 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h01-zv-uXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118.840579710145" y="95.758928571428569"/>
+            <point key="canvasLocation" x="2028.985507246377" y="95.758928571428569"/>
+        </scene>
+        <!--Journal List View Controller-->
+        <scene sceneID="waU-ur-Qo8">
+            <objects>
+                <viewController id="igp-HT-k4G" customClass="JournalListViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CjP-uw-F9W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CUy-9S-pZ8">
+                                <rect key="frame" x="0.0" y="120" width="414" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="P2S-pw-JNy">
+                                        <rect key="frame" x="41.5" y="33" width="331" height="34"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Journal Title Here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v2b-ML-cFf">
+                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-PS-xc5">
+                                                <rect key="frame" x="169.5" y="0.0" width="161.5" height="34"/>
+                                                <state key="normal" title="Create New Journal"/>
+                                                <connections>
+                                                    <action selector="createNewJournalButtonTapped:" destination="igp-HT-k4G" eventType="touchUpInside" id="Nqa-xd-1iu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="UcF-PS-xc5" firstAttribute="centerY" secondItem="P2S-pw-JNy" secondAttribute="centerY" id="Jaq-zV-oa3"/>
+                                            <constraint firstItem="v2b-ML-cFf" firstAttribute="centerY" secondItem="P2S-pw-JNy" secondAttribute="centerY" id="zoT-oR-CLb"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="ZZN-Ur-9Nh"/>
+                                    <constraint firstItem="P2S-pw-JNy" firstAttribute="centerY" secondItem="CUy-9S-pZ8" secondAttribute="centerY" id="iY3-wI-N4I"/>
+                                    <constraint firstItem="P2S-pw-JNy" firstAttribute="centerX" secondItem="CUy-9S-pZ8" secondAttribute="centerX" id="lCq-GV-YDp"/>
+                                    <constraint firstItem="P2S-pw-JNy" firstAttribute="width" secondItem="CUy-9S-pZ8" secondAttribute="width" multiplier="0.8" id="qWD-9s-CME"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Usx-je-Vl5">
+                                <rect key="frame" x="0.0" y="220" width="414" height="642"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="journalCell" textLabel="r6a-nW-3ah" detailTextLabel="jhr-9t-pQy" style="IBUITableViewCellStyleValue1" id="OSX-ip-F0r">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OSX-ip-F0r" id="6mD-me-krr">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r6a-nW-3ah">
+                                                    <rect key="frame" x="20" y="12" width="33" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jhr-9t-pQy">
+                                                    <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ZSi-AB-HTH" kind="show" identifier="toEntryList" id="QHE-fE-HUG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-hC-LVn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Usx-je-Vl5" firstAttribute="leading" secondItem="6Tk-hC-LVn" secondAttribute="leading" id="Irg-ur-AU6"/>
+                            <constraint firstItem="CUy-9S-pZ8" firstAttribute="leading" secondItem="6Tk-hC-LVn" secondAttribute="leading" id="L3q-kI-Z8P"/>
+                            <constraint firstItem="6Tk-hC-LVn" firstAttribute="trailing" secondItem="CUy-9S-pZ8" secondAttribute="trailing" id="W7s-QR-YBc"/>
+                            <constraint firstItem="Usx-je-Vl5" firstAttribute="top" secondItem="CUy-9S-pZ8" secondAttribute="bottom" id="cJy-Kn-EWa"/>
+                            <constraint firstItem="6Tk-hC-LVn" firstAttribute="bottom" secondItem="Usx-je-Vl5" secondAttribute="bottom" id="mw9-6z-iIb"/>
+                            <constraint firstItem="6Tk-hC-LVn" firstAttribute="trailing" secondItem="Usx-je-Vl5" secondAttribute="trailing" id="qK0-Ye-wRb"/>
+                            <constraint firstItem="CUy-9S-pZ8" firstAttribute="top" secondItem="6Tk-hC-LVn" secondAttribute="top" constant="32" id="z9L-ZP-eWX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FvM-p1-Puc"/>
+                    <connections>
+                        <outlet property="journalListTableView" destination="Usx-je-Vl5" id="0UT-oD-PFx"/>
+                        <outlet property="journalTitleTextField" destination="v2b-ML-cFf" id="FP2-k6-iGF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5IA-dT-kVe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="514.49275362318849" y="95.758928571428569"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="elF-qo-nTg">
+        <scene sceneID="LHf-Vc-eP2">
             <objects>
-                <navigationController id="fMi-QU-MUS" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yZu-0i-A9M">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Vh-Tt-Fc1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bce-9U-JYP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ZSi-AB-HTH" kind="relationship" relationship="rootViewController" id="dXO-95-fX3"/>
+                        <segue destination="igp-HT-k4G" kind="relationship" relationship="rootViewController" id="xuP-HH-4jn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ihR-as-pL0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aSG-DP-OKb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-509" y="96"/>
+            <point key="canvasLocation" x="-397.10144927536237" y="95.758928571428569"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
